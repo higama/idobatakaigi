@@ -1,13 +1,23 @@
 import firebase from "firebase";
 
+const {
+  REACT_APP_FIREBASE_API_KEY,
+  REACT_APP_FIREBASE_AUTH_DOMAIN,
+  REACT_APP_FIREBASE_DATABASE_URL,
+  REACT_APP_FIREBASE_PROJECT_ID,
+  REACT_APP_FIREBASE_STOREGE_BUCKET,
+  REACT_APP_FIREBASE_MESSAGEING_SERNDER_ID,
+  REACT_APP_FIREBASE_APP_ID,
+} = process.env;
+
 const firebaseConfig = {
-  apiKey: "AIzaSyD1Rp2z_IQPjNXxGNHiKsXHAWc3d6X9GCs",
-  authDomain: "idobatakaigi-48017.firebaseapp.com",
-  databaseURL: "https://idobatakaigi-48017-default-rtdb.firebaseio.com",
-  projectId: "idobatakaigi-48017",
-  storageBucket: "idobatakaigi-48017.appspot.com",
-  messagingSenderId: "443583890005",
-  appId: "1:443583890005:web:fd2714cc9e9cd892080adc",
+  apiKey: REACT_APP_FIREBASE_API_KEY,
+  authDomain: REACT_APP_FIREBASE_AUTH_DOMAIN,
+  databaseURL: REACT_APP_FIREBASE_DATABASE_URL,
+  projectId: REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: REACT_APP_FIREBASE_STOREGE_BUCKET,
+  messagingSenderId: REACT_APP_FIREBASE_MESSAGEING_SERNDER_ID,
+  appId: REACT_APP_FIREBASE_APP_ID,
 };
 
 firebase.initializeApp(firebaseConfig);
