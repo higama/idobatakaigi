@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Avatar, Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 import MessageField from "./MessageField";
+import MessageSubmitButton from "./MessageSubmitButton";
 
 const useStyles = makeStyles({
   root: {
@@ -12,6 +13,7 @@ const useStyles = makeStyles({
 });
 
 const MessageInputField = ({ name }) => {
+  const inputEl = useRef(null);
   const [text, setText] = useState("");
   const classes = useStyles();
   return (
@@ -21,9 +23,21 @@ const MessageInputField = ({ name }) => {
           <Avatar />
         </Grid>
         <Grid item xs={10}>
-          <MessageField name={name} setText={setText} text={text} />
+          <MessageField
+            inputEl={inputEl}
+            name={name}
+            setText={setText}
+            text={text}
+          />
         </Grid>
-        <Grid item xs={1}>ボタン</Grid>
+        <Grid item xs={1}>
+          <MessageSubmitButton
+            inputEl={inputEl}
+            name={name}
+            setText={setText}
+            text={text}
+          />
+        </Grid>
       </Grid>
     </div>
   );
