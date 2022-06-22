@@ -1,6 +1,7 @@
 import React from "react";
 import { TextField } from "@material-ui/core";
-import { RouterRounded } from "@material-ui/icons";
+
+import { pushMessage } from "../firebase";
 
 const MessageField = ({ name, setText, text }) => {
   console.log({ text });
@@ -15,7 +16,7 @@ const MessageField = ({ name, setText, text }) => {
         if (text === "") return;
 
         if (e.key === "Enter") {
-          console.log("push message to firebase");
+          pushMessage({ name: 'hamuhan', text });
           setText("");
           e.preventDefault(); // submitされないように
         }
